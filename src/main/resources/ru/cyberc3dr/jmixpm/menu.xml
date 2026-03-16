@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://jmix.io/schema/flowui/menu">
+
+    <menu id="application" title="msg://ru.cyberc3dr.jmixpm/menu.application.title" opened="true">
+        <item view="pm_User.list" title="msg://ru.cyberc3dr.jmixpm.view.user/UserListView.title"/>
+        <item view="pm_Project.list" title="msg://ru.cyberc3dr.jmixpm.view.project/projectListView.title"/>
+        <item view="pm_Task.list" title="msg://ru.cyberc3dr.jmixpm.view.task/taskListView.title"/>
+        <item view="pm_TimeEntry.list" title="msg://ru.cyberc3dr.jmixpm.view.timeentry/timeEntryListView.title"/>
+    </menu>
+
+</menu-config>
