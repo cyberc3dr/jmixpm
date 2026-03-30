@@ -11,6 +11,14 @@
             </fetchPlan>
             <loader id="taskDl"/>
         </instance>
+        <collection id="projectsDc" class="ru.cyberc3dr.jmixpm.entity.Project">
+            <loader id="projectsDl" readOnly="true">
+                <query>
+                    <![CDATA[select e from pm_Project e]]>
+                </query>
+            </loader>
+            <fetchPlan extends="_base"/>
+        </collection>
     </data>
     <facets>
         <dataLoadCoordinator auto="true"/>
@@ -33,12 +41,14 @@
                     <action id="entityClearAction" type="entity_clear"/>
                 </actions>
             </entityPicker>
-            <entityPicker id="projectField" property="project">
+            <entityComboBox id="projectsComboBox" property="project" itemsContainer="projectsDc" dataContainer="taskDc">
                 <actions>
                     <action id="entityLookupAction" type="entity_lookup"/>
                     <action id="entityClearAction" type="entity_clear"/>
                 </actions>
-            </entityPicker>
+            </entityComboBox>
+            <select id="priorityField" property="priority"/>
+            <textField id="estimatedEffortsField" property="estimatedEfforts"/>
         </formLayout>
         <hbox id="detailActions">
             <button id="saveAndCloseButton" action="saveCloseAction"/>

@@ -25,6 +25,8 @@
             <textField id="nameField" property="name"/>
             <textArea id="descriptionField" height="9.5em" property="description"/>
             <select id="statusField" property="status"/>
+            <checkbox id="defaultProjectField" property="defaultProject"/>
+            <select id="defaultTaskPriorityField" property="defaultTaskPriority"/>
         </formLayout>
         <hbox id="detailActions">
             <button id="saveAndCloseButton" action="saveCloseAction"/>

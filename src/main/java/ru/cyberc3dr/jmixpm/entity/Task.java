@@ -1,7 +1,6 @@
 package ru.cyberc3dr.jmixpm.entity;
 
 import io.jmix.core.entity.annotation.JmixGeneratedValue;
-import io.jmix.core.metamodel.annotation.InstanceName;
 import io.jmix.core.metamodel.annotation.JmixEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.FutureOrPresent;
@@ -23,7 +22,10 @@ public class Task {
     @Id
     private UUID id;
 
-    @InstanceName
+    @Column(name = "ESTIMATED_EFFORTS")
+    private Integer estimatedEfforts;
+
+    //    @InstanceName
     @Column(name = "NAME", nullable = false)
     @NotNull
     private String name;
@@ -37,10 +39,29 @@ public class Task {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     private User assignee;
 
+    @Column(name = "PRIORITY")
+    private String priority;
+
     @JoinColumn(name = "PROJECT_ID", nullable = false)
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     private Project project;
+
+    public Integer getEstimatedEfforts() {
+        return estimatedEfforts;
+    }
+
+    public void setEstimatedEfforts(Integer estimatedEfforts) {
+        this.estimatedEfforts = estimatedEfforts;
+    }
+
+    public TaskPriority getPriority() {
+        return priority == null ? null : TaskPriority.fromId(priority);
+    }
+
+    public void setPriority(TaskPriority priority) {
+        this.priority = priority == null ? null : priority.getId();
+    }
 
     public Project getProject() {
         return project;

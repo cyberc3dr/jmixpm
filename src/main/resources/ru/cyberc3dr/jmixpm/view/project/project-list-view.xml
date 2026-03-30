@@ -35,6 +35,7 @@
                 <button id="createButton" action="projectsDataGrid.createAction"/>
                 <button id="editButton" action="projectsDataGrid.editAction"/>
                 <button id="removeButton" action="projectsDataGrid.removeAction"/>
+                <button id="showTasks" action="projectsDataGrid.showTasks"/>
             </startSlot>
             <endSlot>
                 <simplePagination id="pagination" dataLoader="projectsDl"/>
@@ -50,11 +51,14 @@
                 <action id="createAction" type="list_create"/>
                 <action id="editAction" type="list_edit"/>
                 <action id="removeAction" type="list_remove"/>
+                <action id="showTasks" text="msg://showTasks.text" icon="LIST" actionVariant="SUCCESS" type="list_itemTracking"/>
             </actions>
             <columns resizable="true">
                 <column property="name"/>
                 <column property="description"/>
                 <column property="status"/>
+                <column property="defaultProject"/>
+                <column property="defaultTaskPriority"/>
             </columns>
         </dataGrid>
         <hbox id="lookupActions" visible="false">
